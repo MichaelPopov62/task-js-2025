@@ -7,6 +7,11 @@
 
 // const numbers = [1, 2, 3, 4, 5]
 
+// const newNumbers = numbers.map( number=> number ** 2);
+// console.log(newNumbers);//(5) [1, 4, 9, 16, 25]
+
+
+
 // ==========================================================
 //task-2
 // Дано масив об'єктів. Створіть новий масив, що містить всі значення
@@ -18,6 +23,10 @@
 //  { id: 2, values: [4, 5, 6] },
 //  { id: 3, values: [7, 8, 9] },
 // ];
+// const newData = data.flatMap((item) => {
+//   return item.values
+// });
+// console.log(newData);//[1, 2, 3, 4, 5, 6, 7, 8, 9].
 // =============================================================
 //task-3
 // Дано масив об'єктів.
@@ -29,6 +38,12 @@
 //  { name: 'Jane', age: 31 },
 //  { name: 'Bob', age: 19 },
 // ];
+// const result = people.some((people)=> {//some- хочаб один улемент відповідає умові
+//   return people.age < 20
+
+// })
+// console.log(result);//true.
+
 // ================================================
 //task-4
 
@@ -36,17 +51,34 @@
 // Перевірте, чи є кожен елемент масиву парним. Очікуваний результат: true.
 
 // const numbers = [2, 4, 6, 8, 10];
+// const newnumber = numbers.every((number) => {//перевіряє чи відпрвідають умовам
+//   return number %2 === 0
+// });
+// console.log(newnumber);//true
+
 // =====================================================
 //task-5
 // Знайдіть перше непарне число
 
 // const numbers = [2, 1, 6, 8, 9, 10, 12];
+// const firstNumber = numbers.find((number) => number % 2 !== 0);// перший що задовольняє умовам
+// console.log(firstNumber);//1
+
+
+
 // ==============================================================
 //task-6
 // Відсортуйте масив чисел [4, 2, 5, 1, 3]
 // у порядку зростання. Очікуваний результат: [1, 2, 3, 4, 5].
 
 // const numbersArray = [4, 2, 5, 1, 3];
+// const newArray = numbersArray.sort((a, b) => {
+//   return a-b
+  
+// });
+// console.log(newArray);//[1, 2, 3, 4, 5]
+
+
 // =================================================================
 //task-7
 // Відсортуйте масив рядків ["banana", "orange", "apple", "pear"]
@@ -54,16 +86,27 @@
 // Очікуваний результат: ["apple", "banana", "orange", "pear"].
 
 // const stringArray = ['banana', 'orange', 'apple', 'pear'];
-// =====================================================================
+// const newStringArray = stringArray.toSorted((a, b)=> {
+//   return a.localeCompare(b);//порівняння двух рядков з урахуванням мовних правил
+// });
+// console.log(newStringArray);// ["apple", "banana", "orange", "pear"].
+
+// ======== =============================================================
 //task-8
 //  Відсортуйте масив об'єктів за віком у порядку зростання.
 // Очікуваний результат: [{name: "Bob", age: 19}, {name: "John", age: 27}, {name: "Jane", age: 31}].
 
-//const users = [
+// const users = [
 //  { name: 'John', age: 27 },
 //  { name: 'Jane', age: 31 },
 //  { name: 'Bob', age: 19 },
 // ];
+// const newUsers = users.toSorted
+//   ((a, b) => {
+//     return  a.age - b.age;
+// });
+// console.log(newUsers);
+
 // ===============================================================
 //task-9
 // Дано масив об'єктів.
@@ -71,17 +114,26 @@
 // вік більше 20 років.
 // Очікуваний результат: [{name: "John", age: 27}, {name: "Jane", age: 31}]
 
-//const user = [
-//  { name: 'John', age: 27 },
-//  { name: 'Jane', age: 31 },
-//  { name: 'Bob', age: 19 },
-// ]
+// const user = [
+//   { name: 'John', age: 27 },
+//   { name: 'Jane', age: 31 },
+//   { name: 'Bob', age: 19 },
+// ];
+// const newUser = user.filter((user) => user.age > 20);
+// console.log(newUser);
 // ======================================================
 //task-10
 // Дано масив чисел [1, 2, 3, 4, 5].
 // Застосуйте метод для обчислення суми елементів масиву.
 
 // const numbers = [1, 2, 3, 4, 5];
+// const sum = numbers.reduce((acc, elem) => {
+//   return acc + elem;
+// }, 0);
+// console.log(sum);
+
+
+
 // ================================================================
 //task-11
  // Розроби клас Calculator, який дозволяє виконувати арифметичні 
@@ -110,17 +162,54 @@
  // Об'єкт класу може проводити послідовні операції у вигляді ланцюжка
  
  // Приклад використання:
- // const calc = new Calculator();
+ 
+//    class Calculator {
+//      constructor() {
+//        this.result = 0; // Початкове значення
+//      }
 
+//      number(value) {
+//        this.result = value; // Встановлюємо значення
+//        return this; // Повертаємо this для ланцюжкових викликів
+//      }
 
+//      getResult() {
+//        return this.result; // Повертаємо поточний результат
+//      }
+
+//      add(value) {
+//        this.result += value; // Додаємо value
+//        return this; // Повертаємо this для підтримки ланцюжкових викликів
+//      }
+
+//      substruct(value) {
+//        this.result -= value; // Віднімаємо value
+//        return this; // Повертаємо this для підтримки ланцюжкових викликів
+//      }
+
+//      multiply(value) {
+//        this.result *= value; // Множимо на value
+//        return this; // Повертаємо this для підтримки ланцюжкових викликів
+//      }
+
+//      divide(value) {
+//        if (value === 0) {
+//          throw new Error('Ділення на нуль неможливе'); // Викидаємо помилку
+//        }
+//        this.result /= value; // Ділимо на value
+//        return this; // Повертаємо this для підтримки ланцюжкових викликів
+//      }
+//    }
+// // Створення екземпляра класу
+// const calc = new Calculator();
 // const result = calc
-//   .number(10)   // Встановлюємо початкове значення 10
-//   .add(5)       // Додаємо 5 (10 + 5 = 15)
-//   .subtract(3)  // Віднімаємо 3 (15 - 3 = 12)
-//   .multiply(4)  // Множимо на 4 (12 * 4 = 48)
-//   .divide(2)    // Ділимо на 2 (48 / 2 = 24)
-//   .getResult(); // Отримуємо результат: 24
+//   .number(10) // Встановлюємо початкове значення 10
+//   .add(5) // Додаємо 5 (10 + 5 = 15)
+//   .substruct(3) // Віднімаємо 3 (15 - 3 = 12)
+//   .multiply(4) // Множимо на 4 (12 * 4 = 48)
+//   .divide(2) // Ділимо на 2 (48 / 2 = 24)
+//   .getResult(); // Отримуємо результат: 24
 
 
-//   console.log(result); // 24
+// console.log(result); // 24
 // ====================================================================/
