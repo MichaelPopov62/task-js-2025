@@ -3,17 +3,100 @@
 
 //task-1
 // 1 - отримай body елемент і виведи його в консоль;
+
+const bodyElm = document.body;
+console.log(bodyElm);
+
 // 2 - отримай елемент id="title" і виведи його в консоль;
+
+const idElem = document.querySelector('#title');
+console.log(idElem);
+
+
 // 3 - отримай елемент class="list" і виведи його в консоль;
+
+const gElem = document.querySelector('.list');
+console.log(gElem);
+
 // 4 - отримай всі елементи з атрибутом data-topic і виведи їх в консоль;
+
+const generalElm = document.querySelectorAll('[data-topic]');
+console.log(generalElm);
+
 // 5 - отримай перший елемент з списку всіх елементів з атрибутом data-topic і виведи його в консоль;
+const firstElem = document.querySelector('[data-topic]');
+console.log(firstElem);
+
 // 6 - отримай останній елемент з списку всіх елементів з атрибутом data-topic і виведи його в консоль;
+
+const elemWidtDataTopic = document.querySelectorAll('[data-topic]');
+if (elemWidtDataTopic.length > 0) {
+  const lastElem = elemWidtDataTopic[elemWidtDataTopic.length - 1];
+  console.log(lastElem);
+} else { console.log('нема нічого'); }
+
 // 7 - який елемент є сусідом для h1? Знайти і виведи його в консоль;
+const hElem = document.querySelector('h1');
+console.log(hElem);
+if(hElem){const nextElem = hElem.nextElementSibling;
+  console.log(nextElem);
+}
+else { console.log(errr); }
+
+
+
 // 8 - по тегу h3 знайти всі заголовки та виведи їх у консоль;
+const titleElem = document.querySelectorAll('h3');
+console.log(titleElem);
+
 // 9 - для кожного елмента h3 додай class="active", який змінить колір заголовка на червоний колір
-// 10 - знайти елемент li який має атрибут data-topic з значенням "navigation" і виведи його в консоль;
+const hListElem = document.querySelectorAll('h3');//находим список елементів h3
+console.log(hListElem);
+
+hListElem.forEach(elem => {
+  elem.classList.add('active');//метод можно використовувати для окремих елементів 
+  elem.style.color = 'red';
+  console.log(elem);
+  
+});
+ 
+// 10,11 - знайти елемент li який має атрибут data-topic з значенням "navigation" і виведи його в консоль;
+const elemDataTopic = document.querySelector('li[data-topic="navigation"]');
+// Перевіряємо, чи елемент знайдено
+if (elemDataTopic) {
+  // Змінюємо стиль через JS
+  elemDataTopic.style.backgroundColor = 'yellow';
+  // Додаємо атрибут style безпосередньо в HTML використовуючі метод setAttribute
+  elemDataTopic.setAttribute('style', 'background-color: yellow;');
+  console.log(elemDataTopic);
+} else {
+  console.log('Елемент з атрибутом data-topic="navigation" не знайдено');
+}
+
 // 11 - додай для знайденого елемента data-topic="navigation" атрибут style і зроби його backgroundColor жовтим
+
+
 // 12 - у елемента data-topic="navigation" знайди елемент р і зміни його текст на "Я змінив тут текст!".
+// Знаходимо елемент li з атрибутом data-topic="navigation"
+const dataTopicElement = document.querySelector('li[data-topic="navigation"]');
+// Перевіряємо, чи знайдено li[data-topic="navigation"]
+if (dataTopicElement) {
+  // Шукаємо елемент p всередині знайденого li
+  const paragrafElement = document.querySelector('p');
+  // Перевіряємо, чи знайдено елемент p
+  if (paragrafElement) {
+    paragrafElement.textContent = 'Я змінив тут текст!';
+    console.log(paragrafElement);
+  } else {
+    console.log('Елемент <p> не знайдено в li[data-topic="navigation"]');
+  }
+} else {
+  console.log('Елемент li[data-topic="navigation"] не знайдено');
+}
+
+
+
+
 // 13 - створи const currentTopic = "manipulation"; після цього знайди елемент у якогоо атрибут data-topic має значення, яке зберігається у змінній currentTopic і виведи його в консоль;
 // 14 - додай до знайденого елемента атрибут style і зроби його backgroundColor блакитним;
 // 15 - знайти в документі заголовок, який має class="completed" і виведи його в консоль;
