@@ -97,12 +97,70 @@ if (dataTopicElement) {
 
 
 
-// 13 - створи const currentTopic = "manipulation"; після цього знайди елемент у якогоо атрибут data-topic має значення, яке зберігається у змінній currentTopic і виведи його в консоль;
+// 13,14 - створи const currentTopic = "manipulation"; після цього знайди елемент у якогоо атрибут data-topic має значення, яке зберігається у змінній currentTopic і виведи його в консоль;
+const currentTopic = 'manipulation';
+const newElem = document.querySelector('[data-topic = "manipulation"]');// можно для динамічночті використати шаблонний літерал "${currentTopic}"який буде підставлять значення змінной
+// Перевіряємо, чи знайдено елемент
+if (newElem) {
+  // Змінюємо стиль знайденого елемента
+  newElem.style.backgroundColor = 'blue';
+
+  // Виводимо елемент у консоль
+  console.log(newElem);
+} else {
+  console.log('Елемент з таким data-topic не знайдено');
+}
 // 14 - додай до знайденого елемента атрибут style і зроби його backgroundColor блакитним;
+
+
 // 15 - знайти в документі заголовок, який має class="completed" і виведи його в консоль;
+const title = document.querySelector('.completed');
+// Перевіряємо, чи знайдено елемент
+if (title) {
+  console.log(title);
+} else {
+  console.log('Елемент із класом "completed" не знайдено');
+}
+
 // 16 - видали елемент li в якому знаходиться заголовок, який має class="completed"
+// Знаходимо заголовок із класом "completed"
+const completedHeader = document.querySelector('li > .completed ');
+// Перевіряємо, чи знайдено заголовок
+if (completedHeader) {
+  // Видаляємо батьківський елемент <li>
+  const liElem = completedHeader.closest('li'); //Метод .closest('li') викликається на цьому елементі і шукає вгору по DOM-дереву (по батьках), доки не знайде найближчий елемент <li>. Саме цей <li> і повертається.
+  if (liElem) {
+    liElem.remove(); //Видаляє знайдений <li> з документу.
+    console.log('Елемент <li> успішно видалено');
+  } else {
+    console.log('Батьківський <li> не знайдено');
+  }
+} else {
+  console.log('Заголовок із класом "completed" не знайдено');
+}
+
 // 17 - після заголовка h1 (перед списком) додай новий елемент p і задай йому наступний текст: "Об'єктна модель документа (Document Object Model)"
+const titlElem = document.querySelector('h1');
+console.log(titlElem);
+//додаемо елемент на початок
+const firstElement = document.createElement('p');
+//додаємо текстовий контент
+firstElement.textContent = "Об'єктна модель документа (Document Object Model)";
+console.log(firstElem);
+// Вставляємо <p> після заголовка h1 (перед списком)
+if (titlElem) {
+  titlElem.after(firstElement);
+} else {
+  console.log("Заголовок h1 не знайдено");
+}
+
 // 18 - додай новий елемент списку у кінець списка, його заголовок це - "Властивість innerHTML" а опис (р) - "Ще один спосіб створити DOM-елементи і помістити їх в дерево - це використовувати рядки з тегами і дозволити браузеру зробити всю важку роботу". тобто, потрібно створити елемент LI потім наповнити H3 та P і готову LI закинути у кінець списку
+
+
+
+
+
+
 // 19 - зроби це саме, але використовуй шаблонні рядки та метод insertAdjacentHTML()
 // 20 - очисти список
 // ===================================================
